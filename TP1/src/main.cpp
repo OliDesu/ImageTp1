@@ -56,6 +56,7 @@ int main() {
 
   cout << "Initialisations..." << endl;
   // Initialisation Shader
+
   GLuint programID = LoadShaders("../shader/vertex1.glsl","../shader/fragment.glsl");
   vec3 v(-1.0f, -1.0f, 0.0f);
   vec3 vertex[3];
@@ -86,7 +87,7 @@ int main() {
   glBindVertexArray(0);
   // Definition de la couleur du fond
   glClearColor(0.4f,0.2f,0.7f,0.0f);
-
+  glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
 
 
 
