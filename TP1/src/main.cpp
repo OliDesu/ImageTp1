@@ -59,10 +59,12 @@ int main() {
 
   GLuint programID = LoadShaders("../shader/vertex1.glsl","../shader/fragment.glsl");
   vec3 v(-1.0f, -1.0f, 0.0f);
-  vec3 vertex[3];
+  vec3 vertex[4];
   vertex[0]= vec3(-0.5f,-0.5f,0.0f);
-  vertex[1]= vec3(0.5f,-0.5f,0.0f);
+  vertex[1]= vec3(0.5f,-1.0f,0.0f);
   vertex[2]= vec3(-0.5f,0.5f,0.0f);
+  vertex[3] = vec3(1.0f,1.0f,0.0f);
+
   GLuint vertexPositionID = glGetAttribLocation(programID, "vertex_position");
 
   GLuint vaoID;
@@ -86,7 +88,7 @@ int main() {
 
   glBindVertexArray(0);
   // Definition de la couleur du fond
-  glClearColor(0.4f,0.2f,0.7f,0.0f);
+  glClearColor(0.8f,0.0f,0.0f,0.0f);
   glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
 
 
@@ -102,18 +104,14 @@ int main() {
     glUseProgram(programID);
 	  //----------------------------------------Zone dessin-----------------------------//
     glBindVertexArray(vaoID);
-    glDrawArrays(GL_TRIANGLES, 0,3);
+    glDrawArrays(GL_TRIANGLES, 0,4);
     glBindVertexArray(0);
 
     glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-    
-    glBegin (GL_TRIANGLE_FAN) ;
-    glColor3f(0.2,0.3,0.4);
-    glVertex3f (-0.5f,0.5f,0.0f) ;
-    glColor3f(0.2,0.3,0.4);
-    glVertex3f (0.5f,-0.5f,0.0f) ;
-    glColor3f(0.2,0.3,0.4);
-    glVertex3f (0.5f,0.5f,0.0f) ;
+
+
+
+ 
     
     glEnd() ;
     //--------------------------------------Fin Zone Dessin----------------------------//
